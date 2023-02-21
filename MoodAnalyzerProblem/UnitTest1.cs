@@ -21,5 +21,20 @@ namespace MoodAnalyzerTestProblem
             Assert.AreEqual(Expextedresult, Actualresult);
 
         }
+        [TestMethod]
+        public void GivenAnyMood_SholuldreturnHappy()
+        {
+            //Arrange
+            Mood_Analyzing Mood = new Mood_Analyzing("I am in Any mood");
+
+            //Act
+            string Expextedresult = "happy";
+
+            //Assert
+            string Actualresult = Mood.Analyzingmood();
+
+            Assert.AreEqual(Expextedresult, Actualresult);
+
+        }
     }
 }
