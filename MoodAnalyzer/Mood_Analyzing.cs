@@ -6,31 +6,41 @@ using System.Threading.Tasks;
 
 namespace MoodAnalyzer
 {
-   
+
     public class Mood_Analyzing
     {
-        public string message;
+        string message;
         public Mood_Analyzing(string message)
         {
-            this.message = message; 
+            this.message = message;
         }
-        public Mood_Analyzing() 
+        public Mood_Analyzing()
         {
 
-        } 
+        }
 
         public string Analyzingmood()
         {
-            if ( message.ToLower().Contains("sad"))
+            try
             {
-                Console.WriteLine("sad");
-                return "sad";
+                if (message.ToLower().Contains("sad"))
+                {
+                    Console.WriteLine("sad");
+                    return "sad";
+                }
+                else
+                {
+                    Console.WriteLine("happy");
+                    return "happy";
+                }
+
             }
-            else 
+            catch (NullReferenceException ex)
             {
-                Console.WriteLine("happy");
-                return "happy";
+                Console.WriteLine(ex.Message);
+                return ex.Message;
             }
         }
+
     }
-}
+ }
