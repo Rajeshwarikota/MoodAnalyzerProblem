@@ -40,16 +40,18 @@ namespace MoodAnalyzerTestProblem
         [TestMethod]
         public void GivenNullMood_SholuldreturnHappy()
         {
-            //Arrange
-            Mood_Analyzing Mood = new Mood_Analyzing("Null");
+            
+                //Arrange
+                Mood_Analyzing Mood = new Mood_Analyzing("Null");
 
-            //Act
-            string Expextedresult = "happy";
+                //Act
+                string Expextedresult = "happy";
 
-            //Assert
-            string Actualresult = Mood.Analyzingmood();
+                //Assert
+                string Actualresult = Mood.Analyzingmood();
 
-            Assert.AreEqual(Expextedresult, Actualresult);
+                Assert.AreEqual(Expextedresult, Actualresult);
+           
 
         }
 
