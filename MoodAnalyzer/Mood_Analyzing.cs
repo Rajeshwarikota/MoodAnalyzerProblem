@@ -41,9 +41,12 @@ namespace MoodAnalyzer
             }
             catch (NullReferenceException)
             {
-                throw new ModalAnalysisExceptin(ModalAnalysisExceptin.ExceptionType.NUll_MESSAGE, "Mood should not be empty");
-                //Console.WriteLine(ex.Message);
-                //return ex.Message;
+                throw new ModalAnalysisExceptin(ModalAnalysisExceptin.ExceptionType.NUll_MESSAGE, "Mood should not be null");
+              
+            }
+            catch (ModalAnalysisExceptin)
+            {
+                return "Mood Should Not Be Empty";
             }
         }
 

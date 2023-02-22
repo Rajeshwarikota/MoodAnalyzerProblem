@@ -76,9 +76,31 @@ namespace MoodAnalyzerTestProblem
 
                 Assert.AreEqual(Expextedresult, Actualresult);
             }
-            catch (ModalAnalysisExceptin     ex)
+            catch (ModalAnalysisExceptin  ex)
             {
                 Assert.AreEqual("Mood should not be null", ex.Message);
+            }
+
+        }
+        [TestMethod]
+        public void Given_Empty_Mood_Sholuld_throw_MoodAnalysisException()
+        {
+            try
+            {
+                //Arrange
+                Mood_Analyzing Mood = new Mood_Analyzing(string.Empty);
+
+                //Act
+              //  string Expextedresult = "happy";
+
+                //Assert
+                string Actualresult = Mood.Analyzingmood();
+
+               // Assert.AreEqual(Expextedresult, Actualresult);
+            }
+            catch (ModalAnalysisExceptin ex)
+            {
+                Assert.AreEqual("Mood should not be empty", ex.Message);
             }
 
         }
