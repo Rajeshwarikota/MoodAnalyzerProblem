@@ -12,6 +12,7 @@ namespace MoodAnalyzer
         {
             Console.WriteLine("....Mood analyzer....");
             Mood_Analyzing mood_Analyzing = new Mood_Analyzing(" ");
+
             mood_Analyzing.Analyzingmood();
             Console.ReadLine();
         }
