@@ -23,7 +23,7 @@ namespace MoodAnalyzer
         {
             try
             {
-                if (message.ToLower().Contains("sad"))
+                if (message.ToLower().Contains("Null"))
                 {
                     Console.WriteLine("sad");
                     return "sad";
