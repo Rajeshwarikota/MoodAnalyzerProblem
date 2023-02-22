@@ -23,7 +23,11 @@ namespace MoodAnalyzer
         {
             try
             {
-                if (message.ToLower().Contains("Message"))
+                if (this.message.Equals(string.Empty))
+                {
+                    throw new ModalAnalysisExceptin(ModalAnalysisExceptin.ExceptionType. EMPTY_MESSAGE, "Mood should not be empty");
+                }
+                if (message.ToLower().Contains("sad"))
                 {
                     Console.WriteLine("sad");
                     return "sad";
@@ -35,10 +39,11 @@ namespace MoodAnalyzer
                 }
 
             }
-            catch (NullReferenceException ex)
+            catch (NullReferenceException)
             {
-                Console.WriteLine(ex.Message);
-                return ex.Message;
+                throw new ModalAnalysisExceptin(ModalAnalysisExceptin.ExceptionType.NUll_MESSAGE, "Mood should not be empty");
+                //Console.WriteLine(ex.Message);
+                //return ex.Message;
             }
         }
 

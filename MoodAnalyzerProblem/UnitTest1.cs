@@ -40,7 +40,8 @@ namespace MoodAnalyzerTestProblem
         [TestMethod]
         public void GivenNullMood_SholuldreturnHappy()
         {
-            
+            try
+            {
                 //Arrange
                 Mood_Analyzing Mood = new Mood_Analyzing("Null");
 
@@ -51,7 +52,34 @@ namespace MoodAnalyzerTestProblem
                 string Actualresult = Mood.Analyzingmood();
 
                 Assert.AreEqual(Expextedresult, Actualresult);
-           
+            }
+            catch (NullReferenceException ex)
+            {
+                Assert.AreEqual("Mood should not be null", ex.Message);
+            }
+
+        }
+
+        [TestMethod]
+        public void Given_Null_Mood_Sholuld_throw_MoodAnalysisException()
+        {
+            try
+            {
+                //Arrange
+                Mood_Analyzing Mood = new Mood_Analyzing("Null");
+
+                //Act
+                string Expextedresult = "happy";
+
+                //Assert
+                string Actualresult = Mood.Analyzingmood();
+
+                Assert.AreEqual(Expextedresult, Actualresult);
+            }
+            catch (ModalAnalysisExceptin     ex)
+            {
+                Assert.AreEqual("Mood should not be null", ex.Message);
+            }
 
         }
 
