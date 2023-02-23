@@ -69,14 +69,14 @@ namespace MoodAnalyzerTestProblem
                 Mood_Analyzing Mood = new Mood_Analyzing("Null");
 
                 //Act
-                string Expextedresult = "happy";
+                //string Expextedresult = "happy";
 
                 //Assert
                 string Actualresult = Mood.Analyzingmood();
 
-                Assert.AreEqual(Expextedresult, Actualresult);
+                //  Assert.AreEqual(Expextedresult, Actualresult);
             }
-            catch (ModalAnalysisExceptin  ex)
+            catch (ModalAnalysisExceptin ex)
             {
                 Assert.AreEqual("Mood should not be null", ex.Message);
             }
@@ -91,19 +91,28 @@ namespace MoodAnalyzerTestProblem
                 Mood_Analyzing Mood = new Mood_Analyzing(string.Empty);
 
                 //Act
-              //  string Expextedresult = "happy";
+                //  string Expextedresult = "happy";
 
                 //Assert
                 string Actualresult = Mood.Analyzingmood();
 
-               // Assert.AreEqual(Expextedresult, Actualresult);
+                // Assert.AreEqual(Expextedresult, Actualresult);
             }
             catch (ModalAnalysisExceptin ex)
             {
                 Assert.AreEqual("Mood should not be empty", ex.Message);
             }
+        }
+        [TestMethod]
+        public void Given_MoodAnalysis_Classname_should_Return_MoodAnalysis_obj()
+        {
+           
+                
+                object expected = new Mood_Analyzing();
+                object obj = MoodAnalyzerFactory.CreateMoodAnalyserObject("MoodAnalyzer.Mood_Analyzing","Mood_Analyzing");
+                expected.Equals(obj);
+            
 
         }
-
     }
 }

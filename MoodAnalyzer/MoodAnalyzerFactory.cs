@@ -11,28 +11,13 @@ namespace MoodAnalyzer
 {
     public class MoodAnalyzerFactory
     {
-        public object CreateMoodAnalyserObject(string className, string construcor)
-        {
-            string pattern = "." + construcor + "$";
-            Match result = Regex.Match(pattern, className);
-            if (result.Success)
-            {
-                try
-                {
-                    Assembly executing = Assembly.GetExecutingAssembly();
-                    Type moodAnalyserType = executing.GetType(className);
-                    return Activator.CreateInstance(moodAnalyserType);
-                }
-                catch (ArgumentNullException ex)
-                {
-                    throw new ModalAnalysisExceptin(ModalAnalysisExceptin.ExceptionType.NO_SUCH_CLASS, "class not found");
+        public static object CreateMoodAnalyserObject(string className, string constructor)
+      {
+            Assembly assembly = Assembly.GetExecutingAssembly();
+            Type moodAnalyserType = assembly.GetType(className);
+            return Activator.CreateInstance(moodAnalyserType);
 
-                }
-            }
-            else
-            {
-                throw new ModalAnalysisExceptin(ModalAnalysisExceptin.ExceptionType.NO_SUCH_METHOD, "Method not found");
-            }
+           
         }
     }
 }
