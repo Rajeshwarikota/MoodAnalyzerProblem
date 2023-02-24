@@ -145,7 +145,7 @@ namespace MoodAnalyzerTestProblem
             {
 
                 object expected = new Mood_Analyzing();
-                object obj = MoodAnalyzerFactory.CreateMoodAnalyserObject("MoodAnalyzer.Mood_Analyzing", "MoodAnalyzing");
+                object obj = MoodAnalyzerFactory.CreateMoodAnalyserObject("MoodAnalyzing","MoodAnalyzer.Mood_Analyzing");
                 expected.Equals(obj);
 
             }

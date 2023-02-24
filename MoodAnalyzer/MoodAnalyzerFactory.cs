@@ -12,7 +12,7 @@ namespace MoodAnalyzer
     public class MoodAnalyzerFactory
     {
         public static object CreateMoodAnalyserObject(string className, string constructor)
-      {
+        {
             //Assembly assembly = Assembly.GetExecutingAssembly();
             //Type moodAnalyserType = assembly.GetType(className);
             //return Activator.CreateInstance(moodAnalyserType);
