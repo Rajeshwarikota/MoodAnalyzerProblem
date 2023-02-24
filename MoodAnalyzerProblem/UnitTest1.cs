@@ -114,5 +114,29 @@ namespace MoodAnalyzerTestProblem
             
 
         }
+        [TestMethod]
+        public void Given_Improper_Classname_should_Return_MoodAnalysis_obj()
+        {
+            try
+            {
+
+                object expected = new Mood_Analyzing();
+                object obj = MoodAnalyzerFactory.CreateMoodAnalyserObject("MoodAnalyzer.Mood_Analyzing", "Mood_Analyzingobj");
+                expected.Equals(obj);
+
+            }
+            catch (ModalAnalysisExceptin ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                Console.WriteLine("Done Test case: WhenGivenClassNameWrong_ThrowsMoodAnalysisException");
+            }
+        }
     }
 }
