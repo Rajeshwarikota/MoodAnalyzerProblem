@@ -106,12 +106,12 @@ namespace MoodAnalyzerTestProblem
         [TestMethod]
         public void Given_MoodAnalysis_Classname_should_Return_MoodAnalysis_obj()
         {
-           
-                
-                object expected = new Mood_Analyzing();
-                object obj = MoodAnalyzerFactory.CreateMoodAnalyserObject("MoodAnalyzer.Mood_Analyzing","Mood_Analyzing");
-                expected.Equals(obj);
-            
+
+
+            object expected = new Mood_Analyzing();
+            object obj = MoodAnalyzerFactory.CreateMoodAnalyserObject("MoodAnalyzer.Mood_Analyzing", "Mood_Analyzing");
+            expected.Equals(obj);
+
 
         }
         [TestMethod]
@@ -136,6 +136,30 @@ namespace MoodAnalyzerTestProblem
             finally
             {
                 Console.WriteLine("Done Test case: WhenGivenClassNameWrong_ThrowsMoodAnalysisException");
+            }
+        }
+        [TestMethod]
+        public void Given_Improper_Constructor_should_Return_MoodAnalysis_obj()
+        {
+            try
+            {
+
+                object expected = new Mood_Analyzing();
+                object obj = MoodAnalyzerFactory.CreateMoodAnalyserObject("MoodAnalyzer.Mood_Analyzing", "MoodAnalyzing");
+                expected.Equals(obj);
+
+            }
+            catch (ModalAnalysisExceptin ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                Console.WriteLine("Done Test case: WhenGivenConstructorWrong_ThrowsMoodAnalysisException");
             }
         }
     }

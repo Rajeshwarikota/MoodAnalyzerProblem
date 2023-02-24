@@ -35,7 +35,7 @@ namespace MoodAnalyzer
             }
             else
             {
-                throw new ModalAnalysisExceptin(ModalAnalysisExceptin.ExceptionType.NO_SUCH_METHOD, "Method not found");
+                throw new ModalAnalysisExceptin(ModalAnalysisExceptin.ExceptionType.NO_SUCH_CONSTRUCTOR, "Method not found");
             }
 
         }
