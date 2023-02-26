@@ -202,10 +202,7 @@ namespace MoodAnalyzerTestProblem
             {
                 Console.WriteLine(ex.Message);
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
+           
             finally
             {
                 Console.WriteLine("Done Test case: WhenGivenClassnameWrong_ThrowsMoodAnalysisException");
@@ -219,7 +216,7 @@ namespace MoodAnalyzerTestProblem
             {
 
                 object expected = new Mood_Analyzing();
-                object obj = MoodAnalyzerFactory.CreateMoodAnalyserParameterizedObject("MoodAnalyzing", "Happy", "MoodAnalyzer.Mood_Analyzingobj" );
+                object obj = MoodAnalyzerFactory.CreateMoodAnalyserParameterizedObject("MoodAnalyzing", "Happy", "MoodAnalyzer.Mood_Analyzingobj");
                 expected.Equals(obj);
 
             }
@@ -227,13 +224,37 @@ namespace MoodAnalyzerTestProblem
             {
                 Console.WriteLine(ex.Message);
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
+           
             finally
             {
                 Console.WriteLine("Done Test case: WhenGivenConstructorWrong_ThrowsMoodAnalysisException");
+            }
+        }
+
+        [TestMethod]
+        public void Given_ModalAnalyzer_using_Reflection_Invoke_Method()
+        {
+            //string message = "I am in happy mood";
+            //string methodName = "AnalyzeMood";
+            //string excepted = "happy";
+            //string expectedmsg = "method not found";
+            //string actual = "";
+            try
+            {
+                //actual = MoodAnalyzerFactory.InvokeAnalyseMood(message, methodName);
+                //Assert.AreEqual(excepted, actual);
+                object expected = new Mood_Analyzing();
+                object obj = MoodAnalyzerFactory.InvokeAnalyseMood("I am in Happy mood","Mood_Analyzing");
+                expected.Equals(obj);
+            }
+            catch (ModalAnalysisExceptin ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+           
+            finally
+            {
+                Console.WriteLine("Done Test case: Method not found");
             }
         }
     }
