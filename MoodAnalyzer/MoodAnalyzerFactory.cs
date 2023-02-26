@@ -13,21 +13,41 @@ namespace MoodAnalyzer
     {
         public static object CreateMoodAnalyserObject(string className, string constructor)
         {
-            //Assembly assembly = Assembly.GetExecutingAssembly();
-            //Type moodAnalyserType = assembly.GetType(className);
-            //return Activator.CreateInstance(moodAnalyserType);
-
-            string pattern = "." + constructor + "$";
-            Match result = Regex.Match(pattern, className);
-            if (result.Success)
+           Type type = typeof(MoodAnalyzerFactory);
+            if (type.Name.Contains(className) || type.FullName.Contains(className))
             {
-                try
+                if (type.Name.Equals(constructor))
                 {
-                    Assembly executing = Assembly.GetExecutingAssembly();
-                    Type moodAnalyserType = executing.GetType(className);
-                    return Activator.CreateInstance(moodAnalyserType);
+                    ConstructorInfo Info = type.GetConstructor(new[] { typeof(string) });
+                    object obj = Info.Invoke(new object[] {});
+                    return obj;
+                   
                 }
-                catch (ArgumentNullException ex)
+                else 
+                {
+                    throw new ModalAnalysisExceptin(ModalAnalysisExceptin.ExceptionType.NO_SUCH_CLASS, "class not found");
+
+                }
+            }
+            else
+            {
+                throw new ModalAnalysisExceptin(ModalAnalysisExceptin.ExceptionType.NO_SUCH_CONSTRUCTOR, "Method not found");
+            }
+
+        }
+        public static object CreateMoodAnalyserParameterizedObject(string className, string constructor, string message)
+        {
+            Type type = typeof(MoodAnalyzerFactory);
+            if (type.Name.Contains(className) || type.FullName.Contains(className))
+            {
+                if (type.Name.Equals(constructor))
+                {
+                    ConstructorInfo Info = type.GetConstructor(new[] { typeof(string) });
+                    object obj = Info.Invoke(new object[] { message });
+                    return obj;
+
+                }
+                else
                 {
                     throw new ModalAnalysisExceptin(ModalAnalysisExceptin.ExceptionType.NO_SUCH_CLASS, "class not found");
 

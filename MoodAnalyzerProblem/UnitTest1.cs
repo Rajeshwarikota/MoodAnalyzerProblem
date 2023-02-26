@@ -145,7 +145,32 @@ namespace MoodAnalyzerTestProblem
             {
 
                 object expected = new Mood_Analyzing();
-                object obj = MoodAnalyzerFactory.CreateMoodAnalyserObject("MoodAnalyzing","MoodAnalyzer.Mood_Analyzing");
+                object obj = MoodAnalyzerFactory.CreateMoodAnalyserObject("MoodAnalyzing", "MoodAnalyzer.Mood_Analyzing");
+                expected.Equals(obj);
+
+            }
+            catch (ModalAnalysisExceptin ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                Console.WriteLine("Done Test case: WhenGivenConstructorWrong_ThrowsMoodAnalysisException");
+            }
+        }
+
+        [TestMethod]
+        public void Given_MoodAnalysis_Classname_should_Return_MoodAnalysis_obj_using_parametrized()
+        {
+            try
+            {
+
+                object expected = new Mood_Analyzing();
+                object obj = MoodAnalyzerFactory.CreateMoodAnalyserParameterizedObject("MoodAnalyzing", "MoodAnalyzer.Mood_Analyzing", "Happy");
                 expected.Equals(obj);
 
             }
